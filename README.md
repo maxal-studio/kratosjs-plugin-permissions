@@ -19,25 +19,22 @@ role concept comes entirely from this plugin.
 npm install @maxal_studio/kratosjs-plugin-permissions
 ```
 
-> Testing against a local, unpublished build of KratosJs? See
-> [Developing & Testing Plugins Locally](../../nodejs-kratosjs/docs/plugins/local-development.md).
-
 ## Register
 
 **Server** (`src/index.ts`):
 
 ```ts
-import { PermissionsPlugin } from '@maxal_studio/kratosjs-plugin-permissions';
+import { PermissionsPlugin } from "@maxal_studio/kratosjs-plugin-permissions";
 
-Panel.make('admin')
-	// ...
-	.plugins([new PermissionsPlugin()]);
+Panel.make("admin")
+  // ...
+  .plugins([new PermissionsPlugin()]);
 ```
 
 **Client** (`src/admin/main.tsx`):
 
 ```ts
-import permissions from '@maxal_studio/kratosjs-plugin-permissions/client';
+import permissions from "@maxal_studio/kratosjs-plugin-permissions/client";
 
 mountAdminPanel({ plugins: [permissions] });
 ```
@@ -106,25 +103,25 @@ Seed an admin role and link your admin user to it (`src/index.ts` start callback
 
 ```ts
 const AdminPermissions = PermissionsPlugin.getEntity();
-let adminRole = await em.findOne(AdminPermissions, { role: 'admin' });
+let adminRole = await em.findOne(AdminPermissions, { role: "admin" });
 if (!adminRole) {
-	adminRole = em.create(AdminPermissions, {
-		role: 'admin',
-		name: 'Admin',
-		description: 'Full access',
-		resources: {},
-		pages: {},
-		createdAt: new Date(),
-		updatedAt: new Date(),
-	});
-	await em.persistAndFlush(adminRole);
+  adminRole = em.create(AdminPermissions, {
+    role: "admin",
+    name: "Admin",
+    description: "Full access",
+    resources: {},
+    pages: {},
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  });
+  await em.persistAndFlush(adminRole);
 }
 PermissionsPlugin.markSuperAdminRole(adminRole.id);
 
-const admin = await em.findOne(User, { email: 'admin@example.com' });
+const admin = await em.findOne(User, { email: "admin@example.com" });
 if (admin && !(admin as any).role) {
-	(admin as any).role = adminRole;
-	await em.flush();
+  (admin as any).role = adminRole;
+  await em.flush();
 }
 ```
 
