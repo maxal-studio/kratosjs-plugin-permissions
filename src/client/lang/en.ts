@@ -1,0 +1,72 @@
+const en = {
+	enabled: 'Enabled',
+	disabled: 'Disabled',
+	partial: 'Partial',
+	select_all: 'Select all',
+	toggle_all: 'Toggle all',
+
+	'levels.hidden': 'Hidden',
+	'levels.readonly': 'View only',
+	'levels.editable': 'Edit',
+
+	'bulk.hidden': 'All Hidden',
+	'bulk.readonly': 'All View only',
+	'bulk.editable': 'All Edit',
+
+	'page_card.page_access': 'Page access',
+	'page_card.grant_full_access': 'Grant full access',
+	'page_card.reset_to_defaults': 'Reset to defaults',
+	'page_card.blocks': 'Blocks',
+
+	'resource_card.fields': 'Fields',
+	'resource_card.columns': 'Columns',
+	'resource_card.actions': 'Actions',
+	'resource_card.widgets': 'Widgets',
+	'resource_card.tabs': 'Tabs',
+	'resource_card.resource_access': 'Resource access',
+	'resource_card.grant_full_access': 'Grant full access',
+	'resource_card.reset_to_defaults': 'Reset to defaults',
+
+	'crud.create': 'Create',
+	'crud.read': 'Read',
+	'crud.update': 'Update',
+	'crud.delete': 'Delete',
+
+	'matrix.apply_to_all': 'Apply to all:',
+	'matrix.no_items': 'No items configured.',
+	'matrix.name': 'Name',
+	'matrix.permission': 'Permission',
+
+	'set_all_field.choose': 'Choose value to apply to all…',
+	'set_all_field.hidden': 'Hidden',
+	'set_all_field.readonly': 'Read Only',
+	'set_all_field.editable': 'Editable',
+
+	'toggle_full_access.grant': 'Grant full access',
+	'toggle_full_access.remove': 'Remove full access',
+
+	'editor.unsaved_changes.title': 'Unsaved changes',
+	'editor.unsaved_changes.message': 'You have unsaved permission changes. Switch role anyway?',
+	'editor.unsaved_changes.confirm': 'Switch role',
+	'editor.saved': 'Permissions saved',
+	'editor.picker.title': 'Configure permissions',
+	'editor.picker.description': 'Choose a role to edit its access rules.',
+	'editor.picker.role': 'Role',
+	'editor.picker.select_role': 'Select a role…',
+	'editor.picker.continue': 'Continue',
+	'editor.title': 'Permissions',
+	'editor.unsaved_changes_badge': 'Unsaved changes',
+	'editor.save': 'Save',
+	'editor.search_placeholder': 'Search {tab}…',
+	'editor.resources': 'resources',
+	'editor.pages': 'pages',
+	'editor.empty.resources.title': 'No resources found',
+	'editor.empty.search_desc': 'Try a different search term.',
+	'editor.empty.resources.desc': 'No resources are registered in this panel.',
+	'editor.empty.pages.title': 'No pages found',
+	'editor.empty.pages.desc': 'No custom pages are registered in this panel.',
+	'editor.resources_count': '{count} of {total} resources',
+	'editor.pages_count': '{count} of {total} pages',
+};
+
+export default en;

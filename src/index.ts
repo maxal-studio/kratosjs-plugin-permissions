@@ -1,0 +1,11 @@
+export { PermissionsPlugin } from './PermissionsPlugin';
+export { PermissionsPage } from './PermissionsPage';
+export { PermissionsEditorBlock } from './PermissionsEditorBlock';
+export { AdminPermissionsResource } from './AdminPermissionsResource';
+export { createAdminPermissionsEntity } from './entities/AdminPermissions';
+export type { IAdminPermissions, ResourcePermission, PagePermission } from './entities/AdminPermissions';
+export { SetAll, ToggleAll, ToggleFullAccess } from './customFields';
+export type { ToggleFullAccessTargets } from './customFields';
+export * from './permissionsController';
+export * from './permissionsHelper';
+export { getPermissionsEm, getPermissionsEntity } from './db';

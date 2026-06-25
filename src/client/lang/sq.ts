@@ -1,0 +1,72 @@
+const sq = {
+	enabled: 'Aktivizuar',
+	disabled: 'Çaktivizuar',
+	partial: 'Pjesërisht',
+	select_all: 'Zgjidh të gjitha',
+	toggle_all: 'Ndrysho të gjitha',
+
+	'levels.hidden': 'E fshehur',
+	'levels.readonly': 'Vetëm lexim',
+	'levels.editable': 'Modifikim',
+
+	'bulk.hidden': 'Të gjitha të fshehura',
+	'bulk.readonly': 'Të gjitha vetëm lexim',
+	'bulk.editable': 'Të gjitha modifikim',
+
+	'page_card.page_access': 'Aksesi në faqë',
+	'page_card.grant_full_access': 'Jep akses të plotë',
+	'page_card.reset_to_defaults': 'Rikthe te parazgjedhjet',
+	'page_card.blocks': 'Blloqet',
+
+	'resource_card.fields': 'Fushat',
+	'resource_card.columns': 'Kolonat',
+	'resource_card.actions': 'Veprimet',
+	'resource_card.widgets': 'Vidhetat',
+	'resource_card.tabs': 'Skedat',
+	'resource_card.resource_access': 'Aksesi në burim',
+	'resource_card.grant_full_access': 'Jep akses të plotë',
+	'resource_card.reset_to_defaults': 'Rikthe te parazgjedhjet',
+
+	'crud.create': 'Krijo',
+	'crud.read': 'Lexo',
+	'crud.update': 'Përditëso',
+	'crud.delete': 'Fshi',
+
+	'matrix.apply_to_all': 'Zbato për të gjitha:',
+	'matrix.no_items': 'Nuk ka elemente të konfiguruara.',
+	'matrix.name': 'Emri',
+	'matrix.permission': 'Leja',
+
+	'set_all_field.choose': 'Zgjidhni vlerën për të zbatuar te të gjitha…',
+	'set_all_field.hidden': 'E fshehur',
+	'set_all_field.readonly': 'Vetëm lexim',
+	'set_all_field.editable': 'E modifikueshme',
+
+	'toggle_full_access.grant': 'Jep akses të plotë',
+	'toggle_full_access.remove': 'Hiq aksesin e plotë',
+
+	'editor.unsaved_changes.title': 'Ndryshime të paruajtura',
+	'editor.unsaved_changes.message': 'Keni ndryshime të lejeve të paruajtura. Ndryshoni rolin gjithsesi?',
+	'editor.unsaved_changes.confirm': 'Ndrysho rolin',
+	'editor.saved': 'Lejet u ruajtën',
+	'editor.picker.title': 'Konfiguro lejet',
+	'editor.picker.description': 'Zgjidhni një rol për të redaktuar rregullat e tij të aksesit.',
+	'editor.picker.role': 'Roli',
+	'editor.picker.select_role': 'Zgjidhni një rol…',
+	'editor.picker.continue': 'Vazhdo',
+	'editor.title': 'Lejet',
+	'editor.unsaved_changes_badge': 'Ndryshime të paruajtura',
+	'editor.save': 'Ruaj',
+	'editor.search_placeholder': 'Kërko {tab}…',
+	'editor.resources': 'burime',
+	'editor.pages': 'faqe',
+	'editor.empty.resources.title': 'Nuk u gjet asnjë burim',
+	'editor.empty.search_desc': 'Provoni një term kërkimi tjetër.',
+	'editor.empty.resources.desc': 'Nuk ka burime të regjistruara në këtë panel.',
+	'editor.empty.pages.title': 'Nuk u gjet asnjë faqe',
+	'editor.empty.pages.desc': 'Nuk ka faqe të personalizuara të regjistruara në këtë panel.',
+	'editor.resources_count': '{count} nga {total} burime',
+	'editor.pages_count': '{count} nga {total} faqe',
+};
+
+export default sq;

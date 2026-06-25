@@ -1,0 +1,49 @@
+{
+	"name": "@maxal_studio/kratosjs-plugin-permissions",
+	"version": "1.0.0",
+	"description": "Role-based permissions for KratosJs panels (MongoDB + SQL)",
+	"main": "./dist/server/index.js",
+	"types": "./dist/server/index.d.ts",
+	"sideEffects": false,
+	"exports": {
+		".": {
+			"types": "./dist/server/index.d.ts",
+			"default": "./dist/server/index.js"
+		},
+		"./client": {
+			"types": "./dist/client/index.d.ts",
+			"default": "./dist/client/index.js"
+		},
+		"./package.json": "./package.json"
+	},
+	"files": [
+		"dist"
+	],
+	"scripts": {
+		"build": "npm run clean && tsc -p tsconfig.server.json && tsc -p tsconfig.client.json",
+		"clean": "rm -rf dist"
+	},
+	"keywords": [
+		"kratosjs",
+		"kratosjs-plugin"
+	],
+	"author": "MaxAl",
+	"license": "ISC",
+	"peerDependencies": {
+		"@maxal_studio/kratosjs-react": "^1.0.0",
+		"@maxal_studio/kratosjs": "^1.0.0",
+		"@mikro-orm/core": "^7.0.0",
+		"@mikro-orm/migrations": "^7.0.0",
+		"react": "^19.0.0",
+		"react-hook-form": "^7.0.0"
+	},
+	"peerDependenciesMeta": {
+		"@mikro-orm/migrations": {
+			"optional": true
+		}
+	},
+	"devDependencies": {
+		"@types/react": "^19.2.5",
+		"typescript": "^5.9.3"
+	}
+}
