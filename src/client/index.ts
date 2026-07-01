@@ -3,8 +3,6 @@ import SetAllField from './SetAllField';
 import ToggleAllField from './ToggleAllField';
 import ToggleFullAccessField from './ToggleFullAccessField';
 import PermissionsEditorBlock from './PermissionsEditorBlock';
-import en from './lang/en';
-import sq from './lang/sq';
 
 export default definePluginClient({
 	name: 'permissions',
@@ -15,9 +13,5 @@ export default definePluginClient({
 	},
 	blocks: {
 		'permissions-editor': PermissionsEditorBlock,
-	},
-	translations: {
-		en,
-		sq,
 	},
 });
