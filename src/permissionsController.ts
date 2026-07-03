@@ -195,8 +195,8 @@ export async function getAllRoles(req: KratosJsRequest, res: KratosJsResponse): 
 
 		res.json(
 			permissions
-				.filter(p => p.role !== 'admin')
-				.map(p => ({
+				.filter((p: IAdminPermissions) => p.role !== 'admin')
+				.map((p: IAdminPermissions) => ({
 					role: p.role,
 					name: p.name || p.role,
 					description: p.description || '',
