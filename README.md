@@ -67,23 +67,16 @@ on the user.
 
 ## Flow the role into auth
 
-So the panel knows the logged-in user's role, return it from your auth callbacks. The
-value may be an unpopulated relation — KratosJs reduces it to the role id for you
-(`normalizeRoleId`), so you can return it as-is (`src/index.ts`):
+So the panel knows the logged-in user's role, add it to the extended user
 
 ```ts
-new EmailAuthProvider({
-  validateCredentials: async (email, password) => {
-    const user = await em.findOne(User, { email });
-    // ...verify...
-    return { _id: String(user.id), email: user.email, role: (user as any).role };
-  },
-}),
-
-getUserById: async (id) => {
-  const user = await em.findOne(User, { id });
-  return { id: String(user.id), email: user.email, role: (user as any).role };
-},
+adminPanel.auth({
+  ...
+  extendUser: (user) => ({
+    role: user.role,
+  }),
+  ...
+});
 ```
 
 ## Super admins
@@ -114,7 +107,8 @@ if (!adminRole) {
     createdAt: new Date(),
     updatedAt: new Date(),
   });
-  await em.persistAndFlush(adminRole);
+  await em.persist(adminRole);
+  await em.flush();
 }
 PermissionsPlugin.markSuperAdminRole(adminRole.id);
 
@@ -128,3 +122,44 @@ if (admin && !(admin as any).role) {
 > **SQL note:** the plugin's bundled migration targets MySQL/MariaDB/Postgres. On SQLite,
 > start the panel with `{ migrate: false, updateSchema: true }` so the schema generator
 > creates the `admin_permissions` table and the user `role` foreign key.
+
+## Disabling / uninstalling the plugin
+
+The plugin attaches the `role` relation to your user entity at runtime, so the schema
+generator creates a `role_id` **column**, an **index** (`user_role_id_index`) and a
+**foreign key** (`user_role_id_foreign`) on the `user` table. These are not managed by a
+migration.
+
+When you disable the plugin, its code no longer runs, so it can't clean those up. On the
+next boot the schema generator tries to drop the leftover index and fails, because
+MySQL/InnoDB won't drop an index that a foreign key still depends on:
+
+```
+DriverException: Cannot drop index 'user_role_id_index': needed in a foreign key constraint
+```
+
+Before disabling the plugin, drop the foreign key **first** (which then lets the column and
+index go). On SQL run:
+
+```sql
+-- Confirm the constraint name (usually user_role_id_foreign):
+SELECT CONSTRAINT_NAME
+FROM information_schema.KEY_COLUMN_USAGE
+WHERE TABLE_NAME = 'user'
+  AND COLUMN_NAME = 'role_id'
+  AND REFERENCED_TABLE_NAME IS NOT NULL;
+
+-- Then drop the FK and the column (dropping the column removes its index):
+ALTER TABLE `user` DROP FOREIGN KEY `user_role_id_foreign`;
+ALTER TABLE `user` DROP COLUMN `role_id`;
+```
+
+Optionally drop the plugin's own table too if you no longer need the role data:
+
+```sql
+DROP TABLE IF EXISTS `admin_permissions`;
+```
+
+After the foreign key is removed, the panel starts cleanly with the plugin disabled. If
+you already hit the error, running the SQL above resolves it — the failing schema step no
+longer has an orphaned index to drop.
