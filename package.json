@@ -1,6 +1,6 @@
 {
   "name": "@maxal_studio/kratosjs-plugin-permissions",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "Role-based permissions for KratosJs panels (MongoDB + SQL)",
   "main": "./dist/server/index.js",
   "types": "./dist/server/index.d.ts",
@@ -30,8 +30,8 @@
   "author": "MaxAl",
   "license": "ISC",
   "peerDependencies": {
-    "@maxal_studio/kratosjs-react": "^1.0.0",
-    "@maxal_studio/kratosjs": "^1.0.0",
+    "@maxal_studio/kratosjs-react": "^2.0.0",
+    "@maxal_studio/kratosjs": "^2.0.0",
     "@mikro-orm/core": "^7.0.0",
     "@mikro-orm/migrations": "^7.0.0",
     "react": "^19.0.0",
