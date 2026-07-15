@@ -5,6 +5,7 @@ import {
   PanelMetadata,
   KratosRequest,
   KratosReply,
+  adminRoute,
 } from "@maxal_studio/kratosjs";
 import { PermissionsPage } from "./PermissionsPage";
 import {
@@ -308,9 +309,14 @@ export class PermissionsPlugin extends Plugin {
       },
     );
 
+    // These are admin API endpoints, not public pages: `adminRoute` prepends the
+    // panel's base path (the client calls `${apiBaseUrl}/permissions/*`) and requires
+    // auth. Without it, `route()` would register them bare, public, and top-level —
+    // exposing the permission structure and, worse, letting anyone POST /save.
     panel.route(
       "get",
       "/permissions/data",
+      adminRoute(panel),
       async (req: KratosRequest, res: KratosReply) => {
         // Attach panel to request for controller
         req.panel = panel;
@@ -321,6 +327,7 @@ export class PermissionsPlugin extends Plugin {
     panel.route(
       "post",
       "/permissions/save",
+      adminRoute(panel),
       async (req: KratosRequest, res: KratosReply) => {
         // Attach panel to request for controller
         req.panel = panel;
@@ -331,6 +338,7 @@ export class PermissionsPlugin extends Plugin {
     panel.route(
       "get",
       "/permissions/roles",
+      adminRoute(panel),
       async (req: KratosRequest, res: KratosReply) => {
         // Attach panel to request for controller
         req.panel = panel;
@@ -341,6 +349,7 @@ export class PermissionsPlugin extends Plugin {
     panel.route(
       "get",
       "/permissions/structure",
+      adminRoute(panel),
       async (req: KratosRequest, res: KratosReply) => {
         req.panel = panel;
         await getStructure(req, res);

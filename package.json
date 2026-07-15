@@ -1,6 +1,6 @@
 {
   "name": "@maxal_studio/kratosjs-plugin-permissions",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Role-based permissions for KratosJs panels (MongoDB + SQL)",
   "main": "./dist/server/index.js",
   "types": "./dist/server/index.d.ts",
