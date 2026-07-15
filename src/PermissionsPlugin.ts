@@ -308,7 +308,7 @@ export class PermissionsPlugin extends Plugin {
       },
     );
 
-    panel.registerRoute(
+    panel.route(
       "get",
       "/permissions/data",
       async (req: KratosRequest, res: KratosReply) => {
@@ -318,7 +318,7 @@ export class PermissionsPlugin extends Plugin {
       },
     );
 
-    panel.registerRoute(
+    panel.route(
       "post",
       "/permissions/save",
       async (req: KratosRequest, res: KratosReply) => {
@@ -328,7 +328,7 @@ export class PermissionsPlugin extends Plugin {
       },
     );
 
-    panel.registerRoute(
+    panel.route(
       "get",
       "/permissions/roles",
       async (req: KratosRequest, res: KratosReply) => {
@@ -338,7 +338,7 @@ export class PermissionsPlugin extends Plugin {
       },
     );
 
-    panel.registerRoute(
+    panel.route(
       "get",
       "/permissions/structure",
       async (req: KratosRequest, res: KratosReply) => {

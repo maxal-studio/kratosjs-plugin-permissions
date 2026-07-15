@@ -31,17 +31,6 @@ Panel.make("admin")
   .plugins([new PermissionsPlugin()]);
 ```
 
-**Client** (`src/admin/main.tsx`):
-
-```ts
-import permissions from "@maxal_studio/kratosjs-plugin-permissions/client";
-
-mountAdminPanel({ plugins: [permissions] });
-```
-
-After registering, open the **Permissions** page in the panel to create roles and set
-their access.
-
 The plugin attaches the `role` relation to the entity named `User` by default. If your
 user entity has a different name, pass it: `new PermissionsPlugin({ userEntityName: 'Account' })`.
 Make sure the user's resource is registered **before** the plugin so the entity can be found.
@@ -78,6 +67,10 @@ adminPanel.auth({
   ...
 });
 ```
+
+## Attention
+
+Since `role` is added the user, admins would need to logout/login so their JWT token is refreshed with `role` in it
 
 ## Super admins
 
